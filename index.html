@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="src/scss/index.css">
+  <title>cook101</title>
+</head>
+<body>
+  <header>
+    <div class="bg"></div>
+    <!-- Name chopfood -->
+    <a href="#">chopfood</a>
+  </header>
+
+  <div id="msgAlert">
+    <!-- <div class="error">
+      please dont leave here blank
+    </div> -->
+  </div>
+
+  <main>
+    <section id="getQuery">
+      <div class="about">
+        
+        <h2>about us</h2>
+        <p>
+          chopfood its a webapp, used to get food recipe
+          either international or local dishes, enjoy :)
+        </p>
+      </div>
+      <form>
+        <input type="text" id="textInput" placeholder="Search for recipe....">
+        <input type="button" value="search" id="searchBtn">
+      </form>
+    </section>
+
+    <section id="render">
+      <span class="close">close</span>
+      <div id="renderContainer">
+        <div class="renderImg">
+          <img src="src/images/barbecue-bbq-chicken-106343.jpg" alt="barbecue-bbq-chicken">
+        </div>
+        <div class="renderContent">
+          <p><span>Title:</span><br><br> Barbecue Suya</p>
+          <p><span>Publisher:</span><br><br> John Doe</p>
+          <button><a href="#">View Recipe</a></button>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer></footer>
+  <script src="src/script/storage.js"></script>
+  <script src="src/script/http.js"></script>
+  <script src="src/script/ui.js"></script>
+  <script src="src/script/app.js"></script>
+</body>
+</html>

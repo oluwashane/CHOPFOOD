@@ -1,0 +1,290 @@
+
+
+
+// variables
+$borders: 15px;
+$shadow: 0 10px 15px 0 rgba(0, 0, 0, 0.178);
+
+$color: (
+  primary: #fff,
+  primary-light: lighten(#fff, 40%),
+  primary-dark: darken(#fff, 15%),
+  secondary: #000,
+  secondary-light: lighten(#000, 40%),
+  accent: #FFF6BB
+);
+
+@function color($color-name) {
+  /* scss maps */
+  @return map-get($color, $color-name)
+}
+
+$desktop: 840px;
+
+@mixin desktop {
+  @media (min-width: #{$desktop}) {
+    @content;
+  }
+}
+
+body, html {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  
+  .bg {
+    background-color: rgba(0, 0, 0, 0.541);
+    height: 100vh;
+
+    @include desktop {
+      /* clip-path: polygon(0 0, 75% 0, 56% 100%, 0% 100%);
+      width: 100%; */
+      background-color: rgba(0, 0, 0, 0.185);
+    }
+  }
+
+  .bg::before {
+    content: '';
+    background-image: url(../images/crust-delicious-dinner-2271194.jpg);
+    background-size: cover;
+    background-position: left;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: -1;
+
+    @include desktop {
+      // clip-path: polygon(0 0, 75% 0, 56% 100%, 0% 100%);
+      background-position: center left;
+    }
+  }
+
+  header a {
+    color: color(primary-dark);
+    position: absolute;
+    top: 0;
+    padding: 1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 0.7em;
+    font-weight: bold;
+
+    @include desktop {
+      color: color(primary);
+    }
+  }
+}
+
+div#msgAlert {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+
+  .error{
+    background: rgb(87, 3, 3);
+    color: color(primary);
+    position: absolute;
+    top: 50px;
+    width: 70%; 
+    padding: 10px;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: .5em;
+    font-weight: bold;
+    letter-spacing: 2px;
+
+    @include desktop {
+      top: 65px;
+      right: 40px;
+      width: 20%;
+      z-index: 1;
+    }
+  }
+  
+}
+
+main {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  @include desktop {
+    background: color(accent);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.432)
+  }
+  
+
+  section#getQuery {
+    margin: 0 30px;
+
+    .about {
+      color: color(primary-dark);
+      text-align: center;
+      text-transform: uppercase;
+      padding: 0 5px;
+
+      @include desktop {
+        color: color(secondary);
+        line-height: 2;
+      }
+
+      h2 {
+        letter-spacing: 4px;
+        overflow: hidden;
+        margin-bottom: -2px
+      }
+
+      p{
+        font-size: .8em;
+        line-height: 1.8;
+        letter-spacing: 1.5px;
+        font-weight: bold;
+      }
+    }
+
+    form {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      justify-content: center;
+      margin: 20px 0;
+
+      #searchTxt {
+        color: color(primary-dark);
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-size: 0.6rem;
+        font-weight: bold;
+        margin-bottom: 10px;
+
+        @include desktop {
+          color: color(secondary-light);
+        }
+      }
+
+      #textInput {
+        width: 80%;
+        height: 30px;
+        border-radius: 10px;
+        border: none;
+        background-color: color(primary);
+        color: color(secondary);
+        // display: none;
+
+        @include desktop {
+          color: color(secondary-light);
+          background-color: color(primary-dark)
+        }
+      }
+
+      #searchBtn {
+        background-color: color(secondary);
+        color: color(primary-dark);
+        border: none;
+        margin-top: 5px;
+        height: 35px;
+        width: 30%;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        font-size: 0.7em;
+        font-weight: bold;
+        transition-property: background color;
+        transition-duration: .5s;
+        transition-timing-function: ease-out;
+
+        &:hover {
+          background: color(primary-dark);
+          color: color(secondary);
+        }
+      }
+
+    }
+  }
+
+  section#render {
+    background: rgba(19, 18, 18, 0.671);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: block;
+
+    @include desktop {
+      z-index: 1;
+    }
+
+    .close {
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: .9em;
+      font-weight: bold;
+      color: #fff;
+      border: 1px solid #fff;
+      position: absolute;
+      right: 10px;
+      padding: 10px;
+      margin: 10px 0;
+      transition: all 10s ease-in;
+
+      &:hover {
+        border: none;
+        color: color(primary-dark);
+      }
+    }
+
+    #renderContainer {
+      /* position: absolute; */
+      top: 56px;
+      height: 70%;
+      margin: 0 60px;
+      background: lighten($color:#fff, $amount: 5%);
+      text-transform: uppercase;
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: bold;
+
+      .renderImg {
+        img {
+          width: 100%;
+        }
+      }
+
+      .renderContent {
+        text-align: center;
+        letter-spacing: 1px;
+
+        span {
+          background: color(secondary-light);
+          color: color(primary);
+          padding: 5px;
+          margin: 20px 0;
+        }
+        button {
+          background: #000;
+          border: none;
+          padding: 15px 20px;
+          border-radius: 19px;
+          box-shadow: $shadow;
+
+          a {
+            color: color(primary);
+            text-decoration: none;
+            text-transform: uppercase;
+          }
+        }
+      }
+    }
+  }
+}
