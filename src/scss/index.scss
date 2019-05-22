@@ -60,7 +60,7 @@ body {
 
     @include desktop {
       // clip-path: polygon(0 0, 75% 0, 56% 100%, 0% 100%);
-      background-position: center left;
+      background-position: right;
     }
   }
 
@@ -100,9 +100,9 @@ div#msgAlert {
     letter-spacing: 2px;
 
     @include desktop {
-      top: 65px;
-      right: 40px;
-      width: 20%;
+      /* top: 65px;
+      right: 109px;*/
+      width: 25%;
       z-index: 1;
     }
   }
@@ -124,8 +124,16 @@ main {
     flex-direction: column;
     align-items: center;
     width: 50%;
+    height: 100vh;
+    right: 0;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.432)
   }
+
+  .simplebar-scrollbar::before {
+    background: color(primary)
+  }
+
+  
   
 
   section#getQuery {
@@ -221,6 +229,7 @@ main {
     width: 100%;
     height: 100%;
     display: none;
+    
 
     @include desktop {
       z-index: 1;
@@ -234,10 +243,10 @@ main {
       color: #fff;
       border: 1px solid #fff;
       position: absolute;
-      right: 10px;
+      right: 20px;
       padding: 10px;
       margin: 10px 0;
-      transition: all 10s ease-in;
+      transition: all 1s ease-in;
 
       &:hover {
         border: none;
@@ -250,41 +259,56 @@ main {
       top: 76px;
       height: 70%;
       margin: 0 60px;
-      background: lighten($color:#fff, $amount: 5%);
+      /* background: lighten($color:#fff, $amount: 5%); */
       text-transform: uppercase;
       font-family: Arial, Helvetica, sans-serif;
       font-weight: bold;
 
-      .renderImg {
-        img {
-          width: 100%;
-        }
+      @include desktop {
+        height: 100vh;
+        width: 80%;
+        /* width: 100%; */
+        display: grid;
+        grid-gap: 15px;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        border: 1px solid red;
       }
 
-      .renderContent {
-        text-align: center;
-        letter-spacing: 1px;
 
-        span {
-          background: color(secondary-light);
-          color: color(primary);
-          padding: 5px;
-          margin: 20px 0;
-        }
-        button {
-          background: #000;
-          border: none;
-          padding: 15px 20px;
-          border-radius: 19px;
-          box-shadow: $shadow;
+      #renderBox {
+        background: color(primary);
 
-          a {
-            color: color(primary);
-            text-decoration: none;
-            text-transform: uppercase;
+        .renderImg {
+          img {
+            width: 100%;
           }
         }
-      }
+  
+        .renderContent {
+          text-align: center;
+          letter-spacing: 1px;
+  
+          span {
+            background: color(secondary-light);
+            color: color(primary);
+            padding: 5px;
+            margin: 20px 0;
+          }
+
+          button {
+            background: #000;
+            border: none;
+            padding: 10px 10px;
+            box-shadow: $shadow;
+  
+            a {
+              color: color(primary);
+              text-decoration: none;
+              text-transform: uppercase;
+            }
+          }
+        }
+      } 
     }
   }
 }
