@@ -4,8 +4,8 @@
 
 ## A web app that helps get recipe{food}
 
-##Pls some functions are not working yet
+##some functions are not working yet
 
-##Still on construction
+##still on build
 
-##Peace.....
+##Peace.....:)
